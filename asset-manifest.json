@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.41ba17d5.chunk.css",
+    "main.js": "/static/js/main.12c4af7e.chunk.js",
+    "main.js.map": "/static/js/main.12c4af7e.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8896086d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8896086d.js.map",
+    "static/js/2.8776984d.chunk.js": "/static/js/2.8776984d.chunk.js",
+    "static/js/2.8776984d.chunk.js.map": "/static/js/2.8776984d.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.4fa11fa7820c75a8eee95a7b63779abc.js": "/precache-manifest.4fa11fa7820c75a8eee95a7b63779abc.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.41ba17d5.chunk.css.map": "/static/css/main.41ba17d5.chunk.css.map",
+    "static/media/style.css": "/static/media/Inter.a4e85816.otf",
+    "static/media/csharp.svg": "/static/media/csharp.a3ed452b.svg",
+    "static/media/envelope.svg": "/static/media/envelope.4d9e5a20.svg",
+    "static/media/git.svg": "/static/media/git.b73214e3.svg",
+    "static/media/github.svg": "/static/media/github.617870e4.svg",
+    "static/media/html5.svg": "/static/media/html5.3056bf2f.svg",
+    "static/media/java.svg": "/static/media/java.95c07d5d.svg",
+    "static/media/javascript.svg": "/static/media/javascript.1f606957.svg",
+    "static/media/linkedin.svg": "/static/media/linkedin.619231ff.svg",
+    "static/media/mysql.svg": "/static/media/mysql.27b0eaaa.svg",
+    "static/media/php.svg": "/static/media/php.a9f29af4.svg",
+    "static/media/python.svg": "/static/media/python.59c0303d.svg",
+    "static/media/react.svg": "/static/media/react.092e0882.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8896086d.js",
+    "static/js/2.8776984d.chunk.js",
+    "static/css/main.41ba17d5.chunk.css",
+    "static/js/main.12c4af7e.chunk.js"
+  ]
+}
