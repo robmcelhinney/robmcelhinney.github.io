@@ -29,9 +29,10 @@ const ProjectCard = (props) => {
 
 
 	return (
-		<div className={"project_card"}>
+		<div className={"project-card"}>
 			<div className={"repo-item"}>
-				<a href={githubResponse.html_url} className={"d-flex name"}>
+				<a href={githubResponse.html_url}
+						className={"d-flex name"}>
 					{githubResponse.name}
 				</a>
 				<div className={"description"}>

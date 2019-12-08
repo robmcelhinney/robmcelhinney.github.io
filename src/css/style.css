@@ -1,11 +1,6 @@
 @font-face {
-    font-family: "Quicksand";
-    src: url("../../src/fonts/Quicksand-Regular.ttf");
-}
-@font-face {
-    font-family: "QuicksandBold";
-    src: url("../../src/fonts/Quicksand-Bold.ttf");
-    font-weight: bold;
+    font-family: "Inter";
+    src: url("../../src/fonts/Inter.otf");
 }
 
 html, body, #app, #root {
@@ -14,13 +9,13 @@ html, body, #app, #root {
 }
 
 body {
-    font-family: 'promixa-nova', sans-serif;
+    /*font-family: 'promixa-nova', sans-serif;*/
+    font-family: "Inter var",sans-serif;
     color: black;
     width: 100%;
     margin: 0;
     padding: 0;
-    /*background-color: #F5F5F5;*/
-    background-color: #fafafa;
+    background-color: #fff;
     font-size: 0.9em;
 }
 
@@ -37,10 +32,9 @@ body {
 }
 
 h1#mainHeader {
-    /*text-align: center;*/
-    /*font-size: 1.8em;*/
-    font-size: 2.8em;
+    font-size: 2.4em;
     line-height: 1.25em;
+    font-weight: 600;
 }
 
 h1 {
@@ -50,8 +44,8 @@ h1 {
 }
 
 h1, h2, h3, h4 {
-    font: normal normal normal 2.5em/1.5em 'QuicksandBold';
-    /*margin-bottom: 1em;*/
+    font: normal normal normal 2.5em/1.5em 'Inter';
+    font-weight: 500;
 }
 
 h3.subHeader {
@@ -73,69 +67,64 @@ h3 {
     padding-bottom: .45em;
 }
 
-.img_icons {
+.img-icons {
     height: 30px;
+    width: 30px;
     padding-right: 20px;
-    -webkit-transition: opacity 0.4s ease-in-out;
-    -moz-transition: opacity 0.4s ease-in-out;
-    -o-transition: opacity 0.4s ease-in-out;
-    transition: opacity 0.4s ease-in-out;
+    -webkit-transition: opacity 0.6s ease-in-out;
+    -moz-transition: opacity 0.6s ease-in-out;
+    -o-transition: opacity 0.6s ease-in-out;
+    transition: opacity 0.6s ease-in-out;
 }
-.img_icons:hover {
+.img-icons:hover {
     opacity: 0.4;
     filter: alpha(opacity=40);
+}
+
+.move-icons {
+    -webkit-transition: transform 0.2s ease;
+    -moz-transition: transform 0.2s ease;
+    -o-transition: transform 0.2s ease;
+    transition: transform 0.2s ease;
+}
+
+.img-icons:hover {
+    transform: translate(0,-5px);
+    -webkit-transform: translate(0,-5px);
+    -o-transform: translate(0,-5px);
+    -moz-transform: translate(0,-5px);
 }
 
 #locationIcon {
     height: 20px;
     vertical-align: middle;
 }
-#locationText {
-    font-size: 1.2em;
-}
 
-
-
-.skills_list {
+.skills-list {
     height: 20px;
 }
 
-.skills_icons {
-    height: 20px;
+.skills-icons-tips {
     padding-right: 20px;
+}
+
+.skills-icons {
+    height: 20px;
     margin: 0 auto;
 }
 
-#main_links {
-    text-align: center;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #999;
-    text-decoration: none;
+.skills-text {
+    margin-top: 10px;
 }
 
-#main_links a {
-    text-decoration: none;
-    color: #999;
+.skills-icons {
 }
 
-#main_links a:hover {
-    text-decoration: none;
-    color: #666;
+.standard-text {
+    font-size: 1.1em;
 }
 
-#main_links a:visited {
-    text-decoration: none;
-    color: #999;
-}
-
-.about_me {
-    /*text-align: center;*/
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.repos_list {
+.repos-list {
     margin-right: -8px;
     margin-left: -8px;
     flex-wrap: wrap !important;
@@ -146,10 +135,12 @@ h3 {
     display: flex !important;
 }
 
-.project_card {
+.project-card {
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    font-weight: 500;
     border: 1px solid #d1d5da;
-    background-color: #fff;
+    /*background-color: #fff;*/
+    background-color: #fafafa;
     font-size: 14px;
     line-height: 1.5;
     color: #24292e;
@@ -165,7 +156,7 @@ h3 {
 }
 
 .repo-item {
-    padding: 16px !important;
+    padding: 14px !important;
     display: flex;
     flex-direction: column;
 }
@@ -174,13 +165,16 @@ h3 {
     color: #0366d6;
     text-decoration: none;
 }
-.repo-item>a:hover{
+
+.text-link>a:hover{
     text-decoration: underline;
+}
+.text-link>a {
+    color: #0366d6;
+    text-decoration: none;
 }
 
 .repo-item>.name {
-    color: #0366d6;
-    text-decoration: none;
     word-wrap: break-word;
 }
 .repo-item>.description {
@@ -218,24 +212,7 @@ h3 {
     #maincontent {
         width: 720px;
     }
-    .ReactTable {
-        font-size: 0.9em;
-        padding-right: inherit;
-        padding-left: inherit;
-    }
-    .nouislider_div {
-        width: 90%;
-    }
-    .noUi-handle.noUi-handle-lower .noUi-tooltip {
-        left: 2px;
-    }
-    .noUi-handle.noUi-handle-upper .noUi-tooltip {
-        left: 15px;
-    }
-    .noUi-target {
-        right: 0;
-    }
-    .project_card {
+    .project-card {
         width: 40%;
     }
 }
@@ -254,3 +231,17 @@ h3 {
         /*width: 1400px;*/
     /*}*/
 /*}*/
+
+
+
+#footer {
+    text-align: center;
+    font-size: 0.7em;
+    color: #999;
+    text-decoration: none;
+    bottom:0;
+}
+
+#footer a:visited {
+    color: #999;
+}
