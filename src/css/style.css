@@ -19,7 +19,7 @@ body {
     font-size: 0.9em;
 }
 
-#maincontent {
+#mainContent {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -29,17 +29,27 @@ body {
 
 #mainHeader {
     margin-top: 10%;
+    margin-bottom: 3em;
 }
 
-h1#mainHeader {
-    font-size: 2.4em;
-    line-height: 1.25em;
-    font-weight: 600;
+header {
+    position: relative;
+    text-align: center;
+}
+
+header nav{
+    right: 0;
+    position: absolute;
+}
+
+.contactLinks {
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
 }
 
 h1 {
     color: #222;
-    padding-bottom: .25em;
     margin: 15px 0;
 }
 
@@ -60,7 +70,7 @@ h3 {
 }
 
 #name {
-    padding-right: 20px;
+    top: -3em;
 }
 
 #icons {
@@ -68,9 +78,13 @@ h3 {
 }
 
 .img-icons {
-    height: 30px;
-    width: 30px;
-    padding-right: 20px;
+    font-size: 2.6em;
+    line-height: 1.25em;
+    font-weight: 600;
+    height: 1.25em;
+    width: 1.25em;
+    padding-right: 10px;
+    padding-left: 10px;
     -webkit-transition: opacity 0.6s ease-in-out;
     -moz-transition: opacity 0.6s ease-in-out;
     -o-transition: opacity 0.6s ease-in-out;
@@ -118,10 +132,6 @@ h3 {
 }
 
 .skills-icons {
-}
-
-.standard-text {
-    font-size: 1.1em;
 }
 
 .repos-list {
@@ -203,31 +213,39 @@ h3 {
 
 
 /*Responsive*/
-@media (min-width: 576px){
-    #maincontent {
-        width: 540px;
+/*@media (min-width: 576px){*/
+    /*#mainContent {*/
+        /*width: 540px;*/
+    /*}*/
+/*}*/
+@media (max-width: 767px){
+    header nav{
+        position: static;
+    }
+    h2 {
+        display: none;
     }
 }
 @media (min-width: 768px){
-    #maincontent {
-        width: 720px;
-    }
+    /*#mainContent {*/
+        /*width: 720px;*/
+    /*}*/
     .project-card {
         width: 40%;
     }
 }
-@media (min-width: 992px){
-    #maincontent {
-        width: 970px;
-    }
-}
+/*@media (min-width: 992px){*/
+    /*#mainContent {*/
+        /*width: 970px;*/
+    /*}*/
+/*}*/
 @media (min-width: 1200px){
-    #maincontent {
+    #mainContent {
         max-width: 1140px;
     }
 }
 /*@media (min-width: 1440px){*/
-    /*#maincontent {*/
+    /*#mainContent {*/
         /*width: 1400px;*/
     /*}*/
 /*}*/
