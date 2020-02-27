@@ -18,28 +18,28 @@ function App() {
 	<div className={"App bg-white rounded-lg p-6"}>
 		<div id={"mainContent"}>
 			<header id={"mainHeader"} className={"md:flex bg-white rounded-lg"}>
-				{/*<div className={"md:flex-shrink-0"}>*/}
 				<img className="h-12 w-12 md:h-20 md:w-20 rounded-full mx-auto md:mx-0 md:mr-6"
 						src={require('../assets/me.jpg')}
 						alt={"Robert profile"}/>
-				{/*</div>*/}
-				<div className={"text-center md:text-left"}>
+				<div className={"my-auto text-center md:text-left"}>
 					<h1 id={"name"} className={"text-xl"}>Robert McElhinney</h1>
-					<h2 className={"text-yellow-900"}>Software Developer</h2>
-					{/*<p className={"mt--k2 text-gray-600"}>Contact Me</p>*/}
+					<h2 className={"text-yellow-500"}>Software Developer</h2>
 				</div>
-				<nav className={"flex contactLinks"}>
+				<nav className={"flex contactLinks my-auto"}>
 					<a href={"https://github.com/robmcelhinney"}>
 						<img src={githubIcon} alt={"github icon"}
-							 className={"githubIcon img-icons move-icons"}/>
+							 className={"githubIcon img-icons move-icons " +
+							 "mx-3 md:mx-4 h-8 md:h-10"}/>
 					</a>
 					<a href={"https://www.linkedin.com/in/robmcelhinney/"}>
 						<img src={linkedinIcon} alt={"linkedin icon"}
-							 className={"linkedinIcon img-icons move-icons"}/>
+							 className={"linkedinIcon img-icons move-icons " +
+							 "mx-3 md:mx-4 h-8 md:h-10"}/>
 					</a>
 					<a href={"mailto:robmcelhinney@hotmail.com"}>
 						<img src={envelopeIcon} alt={"envelope icon"}
-							 className={"envelopeIcon img-icons move-icons"}/>
+							 className={"envelopeIcon img-icons move-icons " +
+							 "mx-3 md:mx-4 h-8 md:h-10"}/>
 					</a>
 				</nav>
 			</header>
@@ -63,8 +63,6 @@ function App() {
 				<div>
 				Experience using Python, Java, ReactJS, Javascript, PHP,
 				C#, and MySQL.
-				</div>
-				<div>
 				Aspiring for language agnosticism through a greater
 				understanding of the fundamentals.
 				</div>
