@@ -10,19 +10,21 @@ const listOfSkills = [{"name": "python", "percent":  1},
 		{"name": "java", "percent": 1}, {"name": "react", "percent": 1},
 		{"name": "javascript", "percent": 1}, {"name": "git",
 		"percent": 1}, {"name": "mysql", "percent": 1},
-		{"name": "php", "percent": 0.4}, {"name": "csharp", "percent": 0.3}];
-const repos = ["OireachtasVote", "MiddleEarthSearch", "phone-block", "asoiaf-search"];
+		{"name": "php", "percent": 0.4}, {"name": "csharp", "percent": 0.2}];
+const repos = ["OireachtasVote", "MiddleEarthSearch", "phone-block", "open-firefox-urls-chrome"];
 
 function App() {
   return (
 	<div className={"App bg-white rounded-lg p-6"}>
 		<div id={"mainContent"}>
 			<header id={"mainHeader"} className={"md:flex bg-white rounded-lg"}>
-				<img className="h-12 w-12 md:h-20 md:w-20 rounded-full mx-auto md:mx-0 md:mr-6"
+				<img className="h-12 w-12 md:h-20 md:w-20 rounded-full
+						mx-auto md:mx-0 md:mr-6 border-solid border-2
+						border-green-500 md:border-transparent"
 						src={require('../assets/me.jpg')}
 						alt={"Robert profile"}/>
 				<div className={"my-auto text-center md:text-left"}>
-					<h1 id={"name"} className={"text-xl"}>Robert McElhinney</h1>
+					<h1 id={"name"} className={"py-2 md:py-0 text-xl"}>Robert McElhinney</h1>
 					<h2 className={"text-yellow-500"}>Software Developer</h2>
 				</div>
 				<nav className={"flex contactLinks my-auto"}>
@@ -45,10 +47,10 @@ function App() {
 			</header>
 
 			<div className={"text-lg md:text-3xl text-gray-700 mb-10"}>
-				Enthusiastic, diligent
-				<span className={"text-yellow-500 sm:text-green-600 " +
+				Enthusiastic, diligent full-stack
+				<code><span className={"text-yellow-500 sm:text-green-600 " +
 				"md:text-indigo-600 lg:text-red-600 xl:text-black"}
-				> {"<"}software developer{">"} </span>
+				> {"<"}software developer{">"} </span></code>
 				motivated to improve my skills wherever possible.
 				Professional experience in Python, Java, & ReactJS.
 			</div>

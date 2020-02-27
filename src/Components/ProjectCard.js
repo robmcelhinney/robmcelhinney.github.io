@@ -31,13 +31,20 @@ const ProjectCard = (props) => {
 	return (
 		<div className={"project-card flex"}>
 			<div className={"repo-item"}>
-				<a href={githubResponse.html_url}
-						className={"d-flex name"}>
-					{githubResponse.name}
-				</a>
-				<div className={"description"}>
-					{githubResponse.description}
-				</div>
+				<>
+					<span className={"text-link name"}>
+						<a href={githubResponse.html_url}>
+							{githubResponse.name}
+						</a>
+						{githubResponse.homepage &&
+						<> | <a href={githubResponse.homepage}>
+							Website
+						</a></>}
+					</span>
+					<div className={"description"}>
+						{githubResponse.description}
+					</div>
+				</>
 			</div>
 			<div className={"repo-extra repo-item mb-0"}>
 				<div className={"language text-grey"}>
