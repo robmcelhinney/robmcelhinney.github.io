@@ -19,7 +19,7 @@ const Skill = ({ skill }) => {
 				<ClickAwayListener onClickAway={handleTooltipClose}>
 					  <Tooltip
 						  title={skill["name"]}  enterDelay={300}
-						  leaveDelay={100} arrow placement={"top"}
+						  leaveDelay={100} arrow placement={"bottom"}
 						  PopperProps={{
 							  disablePortal: true,
 						  }}
