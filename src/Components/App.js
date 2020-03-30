@@ -38,7 +38,7 @@ function App() {
 							 className={"linkedinIcon img-icons move-icons " +
 							 "mx-3 md:mx-4 h-8 md:h-10"}/>
 					</a>
-					<a href={"mailto:robmcelhinney@hotmail.com"}>
+					<a href={"mailto:rob@robmcelhinney.com"}>
 						<img src={envelopeIcon} alt={"envelope icon"}
 							 className={"envelopeIcon img-icons move-icons " +
 							 "mx-3 md:mx-4 h-8 md:h-10"}/>
