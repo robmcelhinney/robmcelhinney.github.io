@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://robmcelhinney.github.io",
+  "homepage": "https://robmcelhinney.com",
   "dependencies": {
     "axios": "latest",
     "core-js": "^3.4.2",
