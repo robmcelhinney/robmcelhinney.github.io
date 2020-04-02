@@ -19,8 +19,8 @@ function App() {
 		<div id={"mainContent"}>
 			<header id={"mainHeader"} className={"md:flex bg-white rounded-lg"}>
 				<img className="h-12 w-12 md:h-20 md:w-20 rounded-full
-						mx-auto md:mx-0 md:mr-6 border-solid border-2
-						border-green-500 md:border-transparent"
+						mx-auto md:mx-0 md:mr-4 border-solid border-2
+						border-black-500 md:border-transparent"
 						src={require('../assets/me.jpg')}
 						alt={"Robert profile"}/>
 				<div className={"my-auto text-center md:text-left"}>
