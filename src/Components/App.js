@@ -11,7 +11,7 @@ const listOfSkills = [{"name": "python", "percent":  1},
 		{"name": "javascript", "percent": 1}, {"name": "git",
 		"percent": 1}, {"name": "mysql", "percent": 1},
 		{"name": "php", "percent": 0.4}, {"name": "csharp", "percent": 0.2}];
-const repos = ["OireachtasVote", "MiddleEarthSearch", "phone-block", "open-firefox-urls-chrome"];
+const repos = ["OireachtasVote", "MiddleEarthSearch", "phone-block", "diceware"];
 
 function App() {
   return (
@@ -76,8 +76,6 @@ function App() {
 			<div className={"text-xl text-gray-700 text-link"}>
 				<div>
 				I'm Irish based. Always aiming to advance.
-				Currently planning to work abroad for a year in China to
-				improve my Mandarin.
 				</div>
 				<div>
 				Frequently focusing on new technologies that pique my interest. E.g:
