@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import dateFormat from 'dateformat';
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+import dateFormat from 'dateformat'
 
 const ProjectCard = (props) => {
 	const [githubResponse, setGithubResponse] = useState(
@@ -10,22 +10,22 @@ const ProjectCard = (props) => {
 			language: "english/中文",
 			topics: ["lorem", "ipsum"]
 		}
-	);
+	)
 
 	const axios_options = {
 		headers: {"Accept": "application/vnd.github.mercy-preview+json"}
-	};
+	}
 
 	useEffect(() => {
 		axios.get(`https://api.github.com/repos/${props.user}/${props.repo}`, axios_options)
 			.then((result) => {
-				const data = result.data;
-				setGithubResponse(data);
-			});
+				const data = result.data
+				setGithubResponse(data)
+			})
 
 		return () => {
-		};
-	});
+		}
+	})
 
 
 	return (
@@ -61,7 +61,7 @@ const ProjectCard = (props) => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default ProjectCard;
+export default ProjectCard

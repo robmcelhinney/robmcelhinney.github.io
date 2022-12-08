@@ -1,5 +1,5 @@
-import React from 'react';
-import ProjectCard from "./ProjectCard";
+import React from 'react'
+import ProjectCard from "./ProjectCard"
 
 const ProjectsList = ({ repos }) => {
 	return (
@@ -8,7 +8,7 @@ const ProjectsList = ({ repos }) => {
 				<ProjectCard key={repo} user={"robmcelhinney"} repo={repo} />
 			))}
 		</div>
-	);
-};
+	)
+}
 
-export default ProjectsList;
+export default ProjectsList

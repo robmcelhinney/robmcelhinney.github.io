@@ -1,18 +1,18 @@
-import React from 'react';
-import Tooltip from '@material-ui/core/Tooltip';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import React from 'react'
+import Tooltip from '@material-ui/core/Tooltip'
+import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 
 const Skill = ({ skill }) => {
 
-	const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = React.useState(false)
 
 	const handleTooltipClose = () => {
-		setOpen(false);
-	};
+		setOpen(false)
+	}
 
 	const handleTooltipOpen = () => {
-		setOpen(true);
-	};
+		setOpen(true)
+	}
 
 	return (
 			<span className={"skills-icons-tips"}>
@@ -39,7 +39,7 @@ const Skill = ({ skill }) => {
 					  </Tooltip>
 				</ClickAwayListener>
 			</span>
-	);
-};
+	)
+}
 
-export default Skill;
+export default Skill
