@@ -23,8 +23,8 @@ function App() {
 						src={require('../assets/me.jpg')}
 						alt={"Robert profile"}/>
 				<div className={"my-auto text-center md:text-left"}>
-					<h1 id={"name"} className={"py-2 md:py-0 text-xl"}>Robert McElhinney</h1>
-					<h2 className={"text-black"}>Software Developer</h2>
+					<h1 id={"name"} className={"py-2 my-0 md:py-0 text-xl"}>Robert McElhinney</h1>
+					<h2 className={"md:text-indigo-600 lg:text-red-600 xl:text-black text-lg"}>Software Developer</h2>
 				</div>
 				<nav className={"flex contactLinks my-auto"}>
 					<a href={"https://github.com/robmcelhinney"}>
@@ -75,9 +75,9 @@ function App() {
 				<div>
 					Frequently focusing on new technologies that pique my interest. E.g:
 					This website should be accessible on your web3-enabled browser
-					using the Ethereum blockchain: <a href="https://robmcelhinney.eth">
+					using the Ethereum blockchain: <a className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href="https://robmcelhinney.eth">
 					robmcelhinney.eth</a> or through a public
-					endpoint: <a href="https://robmcelhinney.eth.link">robmcelhinney.eth.link</a>
+					endpoint: <a className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href="https://robmcelhinney.eth.link">robmcelhinney.eth.link</a>
 				</div>
 			</div>
 		</div>
