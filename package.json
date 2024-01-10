@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.1",
   "private": true,
-  "homepage": "https://robmcelhinney.com",
+  "homepage": ".",
   "dependencies": {
     "axios": "latest",
     "dateformat": "^5.0.3",
@@ -16,7 +16,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -b master -d build",
+    "ipfs": "change homepage to './', build, then pin to ipfs"
   },
   "eslintConfig": {
     "extends": "react-app"
