@@ -1,13 +1,25 @@
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import SnakePhaser from "./SnakePhaser"
+import PythonSnakeEffect from "./PythonSnakeEffect"
 import OceanEffect from "./OceanEffect"
+import BashEffect from "./BashEffect"
+import JavaEffect from "./JavaEffect"
+import ReactEffect from "./ReactEffect"
+import GitEffect from "./GitEffect"
+import MySQLEffect from "./MySQLEffect"
+import NodeEffect from "./NodeEffect"
 
 const Skill = ({ skill }) => {
     const [hovered, setHovered] = useState(false)
     // For Python, track the snake effect origin; for Docker, track the ocean effect.
-    const [snakeOrigin, setSnakeOrigin] = useState(null)
+    const [showSnake, setShowSnake] = useState(null)
     const [showOcean, setShowOcean] = useState(false)
+    const [showBash, setShowBash] = useState(false)
+    const [showJava, setShowJava] = useState(false)
+    const [showReact, setShowReact] = useState(false)
+    const [showGit, setShowGit] = useState(false)
+    const [showMySql, setShowMySql] = useState(false)
+    const [showNode, setShowNode] = useState(false)
 
     const tooltipText = skill.description
         ? skill.description
@@ -20,12 +32,36 @@ const Skill = ({ skill }) => {
                 x: rect.left + rect.width / 2,
                 y: rect.top + rect.height / 2,
             }
-            setSnakeOrigin(origin)
-            setTimeout(() => setSnakeOrigin(null), 4000)
+            setShowSnake(origin)
+            setTimeout(() => setShowSnake(null), 3000)
         }
         if (skill.name === "docker") {
             setShowOcean(true)
             setTimeout(() => setShowOcean(false), 3000)
+        }
+        if (skill.name === "bash") {
+            setShowBash(true)
+            setTimeout(() => setShowBash(false), 3000)
+        }
+        if (skill.name === "java") {
+            setShowJava(true)
+            setTimeout(() => setShowJava(false), 3000)
+        }
+        if (skill.name === "react") {
+            setShowReact(true)
+            setTimeout(() => setShowReact(false), 3000)
+        }
+        if (skill.name === "git") {
+            setShowGit(true)
+            setTimeout(() => setShowGit(false), 3000)
+        }
+        if (skill.name === "mysql") {
+            setShowMySql(true)
+            setTimeout(() => setShowMySql(false), 3000)
+        }
+        if (skill.name === "node-js") {
+            setShowNode(true)
+            setTimeout(() => setShowNode(false), 3000)
         }
     }
 
@@ -59,10 +95,16 @@ const Skill = ({ skill }) => {
                     </motion.div>
                 )}
             </AnimatePresence>
-            {skill.name === "python" && snakeOrigin && (
-                <SnakePhaser origin={snakeOrigin} />
+            {skill.name === "python" && showSnake && (
+                <PythonSnakeEffect origin={showSnake} />
             )}
             {skill.name === "docker" && showOcean && <OceanEffect />}
+            {skill.name === "bash" && showBash && <BashEffect />}
+            {skill.name === "java" && showJava && <JavaEffect />}
+            {skill.name === "react" && showReact && <ReactEffect />}
+            {skill.name === "git" && showGit && <GitEffect />}
+            {skill.name === "mysql" && showMySql && <MySQLEffect />}
+            {skill.name === "node-js" && showNode && <NodeEffect />}
         </motion.span>
     )
 }
