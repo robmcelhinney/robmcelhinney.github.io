@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.d32415ad.css",
-    "main.js": "/static/js/main.26908f0d.js",
+    "main.js": "/static/js/main.46d566fc.js",
     "static/media/Inter.otf": "/static/media/Inter.84e743e297e3cf693a0f.otf",
     "static/media/me1.png": "/static/media/me1.1c5751942da16299a846.png",
     "static/media/me0.png": "/static/media/me0.7b8a1d553ab82d63a8b3.png",
@@ -9,6 +9,7 @@
     "static/media/mysql.svg": "/static/media/mysql.ea2e63a3471d7753404f.svg",
     "static/media/docker.svg": "/static/media/docker.611aea35b36c9351bb55.svg",
     "static/media/react.svg": "/static/media/react.d6dc7e09918bb4ae7220.svg",
+    "static/media/coffee.svg": "/static/media/coffee.302f05833526707f79da93a02da22adb.svg",
     "static/media/python.svg": "/static/media/python.9d4008943c5436bf754d.svg",
     "static/media/node-js.svg": "/static/media/node-js.920adb33a43db4a4314d.svg",
     "static/media/java.svg": "/static/media/java.802dea682c78f64564d9.svg",
@@ -23,10 +24,10 @@
     "static/media/linkedin.svg": "/static/media/linkedin.2335efdaf8f830dd1a9db350d28be195.svg",
     "static/media/html5.svg": "/static/media/html5.7db04b3e2183fe654578.svg",
     "main.d32415ad.css.map": "/static/css/main.d32415ad.css.map",
-    "main.26908f0d.js.map": "/static/js/main.26908f0d.js.map"
+    "main.46d566fc.js.map": "/static/js/main.46d566fc.js.map"
   },
   "entrypoints": [
     "static/css/main.d32415ad.css",
-    "static/js/main.26908f0d.js"
+    "static/js/main.46d566fc.js"
   ]
 }
