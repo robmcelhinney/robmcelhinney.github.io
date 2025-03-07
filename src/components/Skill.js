@@ -1,19 +1,40 @@
-import React from "react"
+import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import SnakePhaser from "./SnakePhaser"
+import OceanEffect from "./OceanEffect"
 
 const Skill = ({ skill }) => {
-    const [hovered, setHovered] = React.useState(false)
+    const [hovered, setHovered] = useState(false)
+    // For Python, track the snake effect origin; for Docker, track the ocean effect.
+    const [snakeOrigin, setSnakeOrigin] = useState(null)
+    const [showOcean, setShowOcean] = useState(false)
 
-    // Use description if available, else default text
     const tooltipText = skill.description
         ? skill.description
         : `Proficient in ${skill.name}`
 
+    const handleClick = (e) => {
+        if (skill.name === "python") {
+            const rect = e.currentTarget.getBoundingClientRect()
+            const origin = {
+                x: rect.left + rect.width / 2,
+                y: rect.top + rect.height / 2,
+            }
+            setSnakeOrigin(origin)
+            setTimeout(() => setSnakeOrigin(null), 4000)
+        }
+        if (skill.name === "docker") {
+            setShowOcean(true)
+            setTimeout(() => setShowOcean(false), 3000)
+        }
+    }
+
     return (
         <motion.span
-            className="skills-icons-tips mx-2 relative"
+            className="skills-icons-tips mx-2 relative cursor-pointer"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
+            onClick={handleClick}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.1, rotate: 3 }}
@@ -38,6 +59,10 @@ const Skill = ({ skill }) => {
                     </motion.div>
                 )}
             </AnimatePresence>
+            {skill.name === "python" && snakeOrigin && (
+                <SnakePhaser origin={snakeOrigin} />
+            )}
+            {skill.name === "docker" && showOcean && <OceanEffect />}
         </motion.span>
     )
 }

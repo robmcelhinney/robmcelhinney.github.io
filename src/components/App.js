@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Header from "./Header"
 import SkillsList from "./SkillsList"
@@ -44,8 +44,26 @@ function App() {
         percentY: 50,
     })
 
-    // Control custom cursor size.
     const [cursorSize, setCursorSize] = useState(30)
+    const [hasMouse, setHasMouse] = useState(false)
+
+    useEffect(() => {
+        const mql = window.matchMedia("(pointer: fine)")
+        setHasMouse(mql.matches)
+        const handler = (e) => setHasMouse(e.matches)
+        if (mql.addEventListener) {
+            mql.addEventListener("change", handler)
+        } else {
+            mql.addListener(handler)
+        }
+        return () => {
+            if (mql.removeEventListener) {
+                mql.removeEventListener("change", handler)
+            } else {
+                mql.removeListener(handler)
+            }
+        }
+    }, [])
 
     const handleMouseMove = (e) => {
         const x = e.clientX
@@ -54,7 +72,7 @@ function App() {
         const percentY = (y / window.innerHeight) * 100
         setCursor({ x, y, percentX, percentY })
 
-        // If hovering over an image or link, shrink the cursor; otherwise, default size.
+        // If hovering over an image or link, shrink the cursor; otherwise, use default size.
         if (e.target.closest("a") || e.target.closest("img")) {
             setCursorSize(10)
         } else {
@@ -62,13 +80,11 @@ function App() {
         }
     }
 
-    // Background: almost white with a pronounced white glow around the cursor.
     const bgStyle = {
         background: `radial-gradient(circle at ${cursor.percentX}% ${cursor.percentY}%, white 0%, rgba(243,244,246,0.6) 40%, rgba(243,244,246,0.8) 70%)`,
         transition: "background 0.3s ease",
     }
 
-    // Use a fast tween transition for default cursor movement; use spring when shrinking.
     const cursorTransition =
         cursorSize === 30
             ? { type: "tween", duration: 0.05 }
@@ -92,7 +108,6 @@ function App() {
                 animate="visible"
                 variants={containerVariants}
             >
-                {/* Header with fun profile pic animation */}
                 <Header />
 
                 <motion.div
@@ -166,22 +181,24 @@ function App() {
                 </motion.div>
             </motion.div>
 
-            {/* Custom Cursor with conditional transition */}
-            <motion.div
-                className="fixed z-20 pointer-events-none"
-                animate={{
-                    width: cursorSize,
-                    height: cursorSize,
-                    left: cursor.x - cursorSize / 2,
-                    top: cursor.y - cursorSize / 2,
-                }}
-                transition={cursorTransition}
-                style={{
-                    borderRadius: "50%",
-                    backgroundColor: "white",
-                    boxShadow: "0 0 8px rgba(0,0,0,0.2)",
-                }}
-            />
+            {/* Only render custom cursor if a fine pointer (mouse) is detected */}
+            {hasMouse && (
+                <motion.div
+                    className="fixed z-20 pointer-events-none"
+                    animate={{
+                        width: cursorSize,
+                        height: cursorSize,
+                        left: cursor.x - cursorSize / 2,
+                        top: cursor.y - cursorSize / 2,
+                    }}
+                    transition={cursorTransition}
+                    style={{
+                        borderRadius: "50%",
+                        backgroundColor: "white",
+                        boxShadow: "0 0 8px rgba(0,0,0,0.2)",
+                    }}
+                />
+            )}
         </div>
     )
 }
