@@ -14,19 +14,19 @@ const ProjectCard = (props) => {
         headers: { Accept: "application/vnd.github.mercy-preview+json" },
     }
 
-    // useEffect(() => {
-    //     axios
-    //         .get(
-    //             `https://api.github.com/repos/${props.user}/${props.repo}`,
-    //             axios_options
-    //         )
-    //         .then((result) => {
-    //             const data = result.data
-    //             setGithubResponse(data)
-    //         })
+    useEffect(() => {
+        axios
+            .get(
+                `https://api.github.com/repos/${props.user}/${props.repo}`,
+                axios_options
+            )
+            .then((result) => {
+                const data = result.data
+                setGithubResponse(data)
+            })
 
-    //     return () => {}
-    // })
+        return () => {}
+    })
 
     return (
         <div className={"project-card flex"}>
