@@ -90,10 +90,19 @@ function App() {
             setTheme(savedTheme)
             return
         }
-        const prefersDark = window.matchMedia(
-            "(prefers-color-scheme: dark)",
-        ).matches
-        setTheme(prefersDark ? "dark" : "light")
+
+        if (!window.matchMedia) {
+            setTheme("dark")
+            return
+        }
+
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
+        if (mediaQuery.media === "not all") {
+            setTheme("dark")
+            return
+        }
+
+        setTheme(mediaQuery.matches ? "dark" : "light")
     }, [])
 
     useEffect(() => {
