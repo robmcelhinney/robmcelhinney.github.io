@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@800&display=swap");
+
 @font-face {
     font-family: "Inter";
     src: url("../../src/fonts/Inter.otf");
@@ -113,8 +115,8 @@ body {
 }
 
 .site-name-zh {
-    font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
-    font-weight: 600;
+    font-family: "Noto Sans SC", "Noto Sans Simplified Chinese", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-weight: 800;
     letter-spacing: 0;
 }
 
