@@ -1,4 +1,10 @@
 # robmcelhinney.com personal site
-Gatsby personal website
 
-Showing small list of projects I've made
+Minimal React + Vite personal portfolio site.
+
+## Scripts
+
+- `npm run dev` starts the local Vite dev server.
+- `npm run build` builds production assets into `dist/`.
+- `npm run preview` previews the production build locally.
+- `npm run deploy` publishes `dist/` with `gh-pages`.

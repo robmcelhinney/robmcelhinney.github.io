@@ -3,28 +3,28 @@
   "version": "0.1.1",
   "private": true,
   "homepage": "https://robmcelhinney.com",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "dependencies": {
-    "axios": "latest",
+    "axios": "^1.12.2",
     "dateformat": "^5.0.3",
-    "framer-motion": "^12.4.10",
+    "framer-motion": "^12.23.24",
     "gh-pages": "^6.3.0",
     "phaser": "^3.88.2",
     "process": "^0.11.10",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^3.4.17"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
+    "deploy": "gh-pages -b master -d dist",
     "ipfs": "change homepage to './', build, then pin to ipfs"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -39,11 +39,11 @@
     ]
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.0.10",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.3",
     "postcss-cli": "^11.0.0",
-    "react-scripts": "^5.0.1"
+    "@vitejs/plugin-react": "^5.1.0",
+    "vite": "^7.1.12"
   },
   "browser": {
     "process": "process/browser"
