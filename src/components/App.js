@@ -71,9 +71,9 @@ const content = {
     zh: {
         role: "软件与系统工程师",
         intro: "我构建工具与平台，使复杂系统更加可观测、更可靠且更易于运维。",
-        focusTitle: "current focus",
-        focusLead: "currently exploring",
-        focusItems: ["ethereum", "tracing", "LLM tooling"],
+        focusTitle: "当前重点",
+        focusLead: "正在探索",
+        focusItems: ["以太坊", "分布式追踪", "AI 说了算"],
         projectsTitle: "项目",
         siteLabel: "网站",
         profileLabel: "切换头像",
@@ -179,6 +179,18 @@ function App() {
                         language={language}
                         siteLabel={content[language].siteLabel}
                     />
+                </section>
+                <section
+                    className="section focus-section"
+                    aria-label={content[language].focusTitle}
+                >
+                    <h2>{content[language].focusTitle}</h2>
+                    {/* <p className="focus-lead">{content[language].focusLead}</p> */}
+                    <ul className="focus-list">
+                        {content[language].focusItems.map((item) => (
+                            <li key={item}>{item}</li>
+                        ))}
+                    </ul>
                 </section>
             </main>
         </div>

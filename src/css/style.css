@@ -283,49 +283,29 @@ body {
 }
 
 .focus-section {
-    margin-top: 16px;
-    padding-left: 10px;
-    border-left: 1px solid var(--line);
-}
-
-.focus-section h2 {
-    margin: 0;
-    font-size: 0.65rem;
-    letter-spacing: 0.08em;
-    text-transform: lowercase;
-    font-weight: 600;
-    color: var(--muted);
+    margin-top: 18px;
 }
 
 .focus-lead {
-    margin: 4px 0 0;
-    color: var(--text);
-    font-size: 0.82rem;
-    letter-spacing: 0.04em;
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    font-weight: 400;
     text-transform: lowercase;
 }
 
 .focus-list {
-    margin: 5px 0 0;
-    padding: 0;
-    list-style: none;
+    margin: 4px 0 0;
+    padding: 0 0 0 14px;
+    list-style: disc;
 }
 
 .focus-list li {
     margin: 0;
-    color: var(--text);
-    font-size: 0.86rem;
-    line-height: 1.5;
-}
-
-.focus-list li::before {
-    content: "\2022";
-    margin-right: 7px;
     color: var(--muted);
-}
-
-.focus-section + .section {
-    margin-top: 20px;
+    font-size: 0.9rem;
+    line-height: 1.25;
 }
 
 .section {
