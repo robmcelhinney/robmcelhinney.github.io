@@ -31,14 +31,6 @@ const projects = [
         },
     },
     {
-        name: "blink-morse",
-        url: "https://github.com/robmcelhinney/blink-morse",
-        info: {
-            en: "Webcam blink to type",
-            zh: "通过摄像头眨眼进行文字输入",
-        },
-    },
-    {
         name: "screen-commentator",
         url: "https://github.com/robmcelhinney/screen-commentator",
         info: {
@@ -52,6 +44,14 @@ const projects = [
         info: {
             en: "Generates realistic traces to test o11y pipelines.",
             zh: "生成逼真的链路追踪，用于测试可观测性流水线。",
+        },
+    },
+    {
+        name: "blink-morse",
+        url: "https://github.com/robmcelhinney/blink-morse",
+        info: {
+            en: "Webcam blink to type",
+            zh: "通过摄像头眨眼进行文字输入",
         },
     },
 ]
