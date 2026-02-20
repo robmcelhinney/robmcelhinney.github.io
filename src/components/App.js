@@ -1,204 +1,171 @@
-import React, { useState, useEffect } from "react"
-import { motion } from "framer-motion"
+import React, { useEffect, useState } from "react"
 import Header from "./Header"
-import SkillsList from "./SkillsList"
 import ProjectsList from "./ProjectsList"
 
-const listOfSkills = [
-    { name: "python", percent: 1 },
-    { name: "bash", percent: 1 },
-    { name: "java", percent: 1 },
-    { name: "react", percent: 1 },
-    { name: "docker", percent: 1 },
-    { name: "git", percent: 1 },
-    { name: "mysql", percent: 1 },
-    { name: "node-js", percent: 1, description: "NodeJS personal projects" },
-]
-const repos = [
-    "blink-morse",
-    "OireachtasVote",
-    "MiddleEarthSearch",
-    "ens-avatar",
-    "phone-block",
-    "cast-media",
+const projects = [
+    {
+        name: "lobbyieng",
+        url: "https://github.com/robmcelhinney/lobbyieng",
+        site: "https://www.lobbyieng.com/",
+        info: {
+            en: "Irish Government lobbying explorer",
+            zh: "爱尔兰政府游说数据浏览工具",
+        },
+    },
+    {
+        name: "OireachtasVote",
+        url: "https://github.com/robmcelhinney/OireachtasVote",
+        site: "https://robmcelhinney.com/OireachtasVote/",
+        info: {
+            en: "Irish parliament vote explorer",
+            zh: "爱尔兰议会投票数据浏览工具",
+        },
+    },
+    {
+        name: "dental-deserts",
+        url: "https://github.com/robmcelhinney/dental-deserts",
+        site: "https://robmcelhinney.com/dental-deserts/",
+        info: {
+            en: "Dental deserts in England",
+            zh: "英格兰牙科资源短缺地区分析",
+        },
+    },
+    {
+        name: "blink-morse",
+        url: "https://github.com/robmcelhinney/blink-morse",
+        info: {
+            en: "Webcam blink to type",
+            zh: "通过摄像头眨眼进行文字输入",
+        },
+    },
+    {
+        name: "screen-commentator",
+        url: "https://github.com/robmcelhinney/screen-commentator",
+        info: {
+            en: "Local LLM narrates your screen.",
+            zh: "本地运行的 LLM 实时解说屏幕内容。",
+        },
+    },
+    {
+        name: "spanforge",
+        url: "https://github.com/robmcelhinney/spanforge",
+        info: {
+            en: "Generates realistic traces to test o11y pipelines.",
+            zh: "生成逼真的链路追踪，用于测试可观测性流水线。",
+        },
+    },
 ]
 
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+const content = {
+    en: {
+        role: "Software / Systems Engineer",
+        intro: "Software and systems engineer focused on reliable platforms, practical automation, and clear developer workflows.",
+        projectsTitle: "Projects",
+        siteLabel: "site",
+        profileLabel: "Switch profile image",
+        themeLabel: "Toggle dark mode",
+    },
+    zh: {
+        role: "软件与系统工程师",
+        intro: "专注于可靠平台、实用自动化与清晰开发流程的软件与系统工程师。",
+        projectsTitle: "项目",
+        siteLabel: "网站",
+        profileLabel: "切换头像",
+        themeLabel: "切换深色模式",
     },
 }
 
-const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-}
-
 function App() {
-    const [cursor, setCursor] = useState({
-        x: window.innerWidth / 2,
-        y: window.innerHeight / 2,
-        percentX: 50,
-        percentY: 50,
+    const [theme, setTheme] = useState("dark")
+    const [language, setLanguage] = useState("en")
+    const [cursorGlow, setCursorGlow] = useState({
+        x: 0,
+        y: 0,
+        active: false,
     })
 
-    const [cursorSize, setCursorSize] = useState(30)
-    const [hasMouse, setHasMouse] = useState(false)
+    useEffect(() => {
+        const savedTheme = window.localStorage.getItem("theme")
+        if (savedTheme === "light" || savedTheme === "dark") {
+            setTheme(savedTheme)
+            return
+        }
+        const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+        ).matches
+        setTheme(prefersDark ? "dark" : "light")
+    }, [])
 
     useEffect(() => {
-        const mql = window.matchMedia("(pointer: fine)")
-        setHasMouse(mql.matches)
-        const handler = (e) => setHasMouse(e.matches)
-        if (mql.addEventListener) {
-            mql.addEventListener("change", handler)
-        } else {
-            mql.addListener(handler)
-        }
-        return () => {
-            if (mql.removeEventListener) {
-                mql.removeEventListener("change", handler)
-            } else {
-                mql.removeListener(handler)
-            }
+        const savedLanguage = window.localStorage.getItem("language")
+        if (savedLanguage === "en" || savedLanguage === "zh") {
+            setLanguage(savedLanguage)
         }
     }, [])
 
-    const handleMouseMove = (e) => {
-        const x = e.clientX
-        const y = e.clientY
-        const percentX = (x / window.innerWidth) * 100
-        const percentY = (y / window.innerHeight) * 100
-        setCursor({ x, y, percentX, percentY })
+    useEffect(() => {
+        document.documentElement.setAttribute("data-theme", theme)
+        window.localStorage.setItem("theme", theme)
+    }, [theme])
 
-        // If hovering over an image or link, shrink the cursor; otherwise, use default size.
-        if (e.target.closest("a") || e.target.closest("img")) {
-            setCursorSize(10)
-        } else {
-            setCursorSize(30)
+    useEffect(() => {
+        document.documentElement.lang = language === "zh" ? "zh-CN" : "en"
+        window.localStorage.setItem("language", language)
+    }, [language])
+
+    const handleThemeToggle = () => {
+        setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"))
+    }
+
+    const handleMouseMove = (event) => {
+        if (theme !== "dark") {
+            return
         }
+        setCursorGlow({
+            x: event.clientX,
+            y: event.clientY,
+            active: true,
+        })
     }
 
-    const bgStyle = {
-        background: `radial-gradient(circle at ${cursor.percentX}% ${cursor.percentY}%, white 0%, rgba(243,244,246,0.6) 40%, rgba(243,244,246,0.8) 70%)`,
-        transition: "background 0.3s ease",
+    const handleMouseLeave = () => {
+        setCursorGlow((prevGlow) => ({
+            ...prevGlow,
+            active: false,
+        }))
     }
-
-    const cursorTransition =
-        cursorSize === 30
-            ? { type: "tween", duration: 0.05 }
-            : { type: "spring", stiffness: 300 }
 
     return (
         <div
-            className="relative min-h-screen bg-gray-200 overflow-hidden"
+            className="site-shell"
             onMouseMove={handleMouseMove}
-            style={{ cursor: "none" }}
+            onMouseLeave={handleMouseLeave}
+            style={{
+                "--spot-x": `${cursorGlow.x}px`,
+                "--spot-y": `${cursorGlow.y}px`,
+                "--spot-opacity": theme === "dark" && cursorGlow.active ? 1 : 0,
+            }}
         >
-            {/* Background Layer */}
-            <motion.div
-                className="absolute inset-0 z-0 pointer-events-none"
-                style={bgStyle}
-            />
-
-            <motion.div
-                className="relative z-10 p-6 max-w-5xl mx-auto"
-                initial="hidden"
-                animate="visible"
-                variants={containerVariants}
-            >
-                <Header />
-
-                <motion.div
-                    variants={itemVariants}
-                    className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed"
-                >
-                    Full-stack{" "}
-                    <code className="text-yellow-500 sm:text-green-600 md:text-indigo-600 lg:text-red-600 xl:text-black">
-                        {"<software developer>"}
-                    </code>{" "}
-                    experienced in Python and Docker. Leveraging expertise in
-                    observability and platform reliability to boost system
-                    clarity, slash TTD, and rapidly troubleshoot.
-                </motion.div>
-
-                <motion.h3
-                    variants={itemVariants}
-                    className="text-2xl font-semibold mb-4 border-b pb-2"
-                >
-                    Pinned Public Projects
-                </motion.h3>
-                <ProjectsList repos={repos} />
-
-                <motion.h3
-                    variants={itemVariants}
-                    className="text-2xl font-semibold mt-8 mb-4 border-b pb-2"
-                >
-                    Some Software Skills
-                </motion.h3>
-                <SkillsList skills={listOfSkills} />
-
-                <motion.div
-                    variants={itemVariants}
-                    className="text-xl text-gray-700 mb-8 mt-6 leading-relaxed"
-                >
-                    Experience using Python, Java, ReactJS, NodeJS, Docker.
-                    Aiming to improve my software skills in all areas.
-                </motion.div>
-
-                <motion.h3
-                    variants={itemVariants}
-                    className="text-2xl font-semibold mb-4 border-b pb-2"
-                >
-                    More Me
-                </motion.h3>
-                <motion.div
-                    variants={itemVariants}
-                    className="text-xl text-gray-700 leading-relaxed"
-                >
-                    <p className="mb-2">
-                        Frequently focusing on new technologies that pique my
-                        interest.
-                    </p>
-                    <p>
-                        Check out my site via IPFS with an Ethereum-enabled
-                        domain:
-                        <a
-                            className="underline text-blue-600 hover:text-blue-800 ml-1"
-                            href="https://robmcelhinney.eth"
-                        >
-                            robmcelhinney.eth
-                        </a>{" "}
-                        or at:
-                        <a
-                            className="underline text-blue-600 hover:text-blue-800 ml-1"
-                            href="https://robmcelhinney.eth.link"
-                        >
-                            robmcelhinney.eth.limo
-                        </a>
-                    </p>
-                </motion.div>
-            </motion.div>
-
-            {/* Only render custom cursor if a fine pointer (mouse) is detected */}
-            {hasMouse && (
-                <motion.div
-                    className="fixed z-20 pointer-events-none"
-                    animate={{
-                        width: cursorSize,
-                        height: cursorSize,
-                        left: cursor.x - cursorSize / 2,
-                        top: cursor.y - cursorSize / 2,
-                    }}
-                    transition={cursorTransition}
-                    style={{
-                        borderRadius: "50%",
-                        backgroundColor: "white",
-                        boxShadow: "0 0 8px rgba(0,0,0,0.2)",
-                    }}
+            <main className="site-main">
+                <Header
+                    theme={theme}
+                    onThemeToggle={handleThemeToggle}
+                    language={language}
+                    onLanguageChange={setLanguage}
+                    roleText={content[language].role}
+                    profileLabel={content[language].profileLabel}
+                    themeLabel={content[language].themeLabel}
                 />
-            )}
+                <p className="intro">{content[language].intro}</p>
+                <section className="section">
+                    <h2>{content[language].projectsTitle}</h2>
+                    <ProjectsList
+                        projects={projects}
+                        language={language}
+                        siteLabel={content[language].siteLabel}
+                    />
+                </section>
+            </main>
         </div>
     )
 }

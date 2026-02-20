@@ -1,98 +1,133 @@
 import React, { useState } from "react"
-import { motion, useAnimation } from "framer-motion"
+import profileImage0 from "../assets/me0.png"
+import profileImage1 from "../assets/me1.png"
+import profileImage2 from "../assets/me2.png"
 import githubIcon from "../icons/github.svg"
 import linkedinIcon from "../icons/linkedin.svg"
 import envelopeIcon from "../icons/envelope.svg"
 
-const Header = () => {
-    const controls = useAnimation()
-    const images = [
-        require("../assets/me0.png"),
-        require("../assets/me1.png"),
-        require("../assets/me2.png"),
-    ]
-    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+const Header = ({
+    theme,
+    onThemeToggle,
+    language,
+    onLanguageChange,
+    roleText,
+    profileLabel,
+    themeLabel,
+}) => {
+    const profileImages = [profileImage0, profileImage1, profileImage2]
+    const [profileIndex, setProfileIndex] = useState(0)
 
-    const handleProfileClick = async () => {
-        // Animate to 180° with fade out
-        await controls.start({
-            rotate: 180,
-            opacity: 0,
-            transition: { duration: 0.4, ease: "easeInOut" },
-        })
-        // Switch to the next image (cycle through array)
-        setCurrentImageIndex((currentImageIndex + 1) % images.length)
-        // Animate from 180° to 360° with fade in
-        await controls.start({
-            rotate: 360,
-            opacity: 1,
-            transition: { duration: 0.4, ease: "easeInOut" },
-        })
-        // Reset rotation to 0 for next click
-        controls.set({ rotate: 0 })
+    const handleProfileClick = () => {
+        setProfileIndex((prevIndex) => (prevIndex + 1) % profileImages.length)
+    }
+
+    const content = {
+        en: {
+            name: "Robert McElhinney",
+        },
+        zh: {
+            name: "罗伟德",
+        },
     }
 
     return (
-        <motion.header
-            id="mainHeader"
-            className="md:flex items-center justify-between bg-white/70 backdrop-blur-md rounded-lg px-6 py-4 shadow-md mb-6"
-        >
-            <div className="flex items-center">
-                {/* Profile picture cycles images on click */}
-                <motion.img
-                    onClick={handleProfileClick}
-                    animate={controls}
-                    whileHover={{ opacity: 0.9 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="h-16 w-16 md:h-24 md:w-24 rounded-full border-2 border-gray-300 mr-4 cursor-pointer"
-                    src={images[currentImageIndex]}
-                    alt="Robert profile"
-                />
-                <div className="text-left">
-                    <h1 id="name" className="py-2 my-0 md:py-0 text-xl">
-                        Robert McElhinney
-                    </h1>
-                    <h2 className="md:text-indigo-600 lg:text-red-600 xl:text-black text-lg">
-                        Software/Systems Engineer
-                    </h2>
-                </div>
+        <header className="site-header">
+            <div className="site-title-wrap">
+                <h1 className={language === "zh" ? "site-name site-name-zh" : "site-name"}>
+                    {content[language].name}
+                </h1>
+                <p className="site-role">{roleText}</p>
             </div>
-            <nav className="flex space-x-4 mt-4 md:mt-0">
-                <motion.a
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    href="https://github.com/robmcelhinney"
+            <div className="site-header-right">
+                <button
+                    className="site-avatar-button"
+                    onClick={handleProfileClick}
+                    type="button"
+                    aria-label={profileLabel}
                 >
                     <img
-                        src={githubIcon}
-                        alt="github icon"
-                        className="h-8 md:h-10 mt-2"
+                        className="site-avatar"
+                        src={profileImages[profileIndex]}
+                        alt="Robert McElhinney profile"
                     />
-                </motion.a>
-                <motion.a
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    href="https://www.linkedin.com/in/robmcelhinney/"
+                </button>
+                <button
+                    className="theme-switch"
+                    onClick={onThemeToggle}
+                    type="button"
+                    aria-label={themeLabel}
+                    aria-pressed={theme === "dark"}
                 >
-                    <img
-                        src={linkedinIcon}
-                        alt="linkedin icon"
-                        className="h-8 md:h-10 mt-2"
-                    />
-                </motion.a>
-                <motion.a
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    href="mailto:site@robmcelhinney.com"
-                >
-                    <img
-                        src={envelopeIcon}
-                        alt="envelope icon"
-                        className="h-8 md:h-10 mt-2 mr-2"
-                    />
-                </motion.a>
-            </nav>
-        </motion.header>
+                    <span className="theme-switch-icon" aria-hidden="true">
+                        {theme === "dark" ? (
+                            <svg viewBox="0 0 24 24" focusable="false">
+                                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8Z" />
+                            </svg>
+                        ) : (
+                            <svg viewBox="0 0 24 24" focusable="false">
+                                <circle cx="12" cy="12" r="4" />
+                                <path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" />
+                            </svg>
+                        )}
+                    </span>
+                    <span className="theme-switch-track">
+                        <span
+                            className={
+                                theme === "dark"
+                                    ? "theme-switch-thumb is-dark"
+                                    : "theme-switch-thumb"
+                            }
+                        />
+                    </span>
+                </button>
+                <div className="language-switch" aria-label="Language switcher">
+                    <button
+                        className={
+                            language === "en"
+                                ? "lang-btn is-active"
+                                : "lang-btn"
+                        }
+                        type="button"
+                        onClick={() => onLanguageChange("en")}
+                    >
+                        EN
+                    </button>
+                    <span>/</span>
+                    <button
+                        className={
+                            language === "zh"
+                                ? "lang-btn is-active"
+                                : "lang-btn"
+                        }
+                        type="button"
+                        onClick={() => onLanguageChange("zh")}
+                    >
+                        中文
+                    </button>
+                </div>
+                <nav className="site-nav" aria-label="Profiles">
+                    <a
+                        href="https://github.com/robmcelhinney"
+                        aria-label="GitHub"
+                    >
+                        <img src={githubIcon} alt="" />
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/robmcelhinney/"
+                        aria-label="LinkedIn"
+                    >
+                        <img src={linkedinIcon} alt="" />
+                    </a>
+                    <a
+                        href="mailto:portfolio@robmcelhinney.com"
+                        aria-label="Email"
+                    >
+                        <img src={envelopeIcon} alt="" />
+                    </a>
+                </nav>
+            </div>
+        </header>
     )
 }
 
