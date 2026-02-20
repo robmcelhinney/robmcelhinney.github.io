@@ -59,7 +59,10 @@ const projects = [
 const content = {
     en: {
         role: "Software / Systems Engineer",
-        intro: "Software and systems engineer focused on reliable platforms, practical automation, and clear developer workflows.",
+        intro: "I build tools and platforms that make complex systems observable, reliable, and easier to operate.",
+        focusTitle: "current focus",
+        focusLead: "currently exploring",
+        focusItems: ["ethereum", "tracing", "LLM tooling"],
         projectsTitle: "Projects",
         siteLabel: "site",
         profileLabel: "Switch profile image",
@@ -67,7 +70,10 @@ const content = {
     },
     zh: {
         role: "软件与系统工程师",
-        intro: "专注于可靠平台、实用自动化与清晰开发流程的软件与系统工程师。",
+        intro: "我构建工具与平台，使复杂系统更加可观测、更可靠且更易于运维。",
+        focusTitle: "current focus",
+        focusLead: "currently exploring",
+        focusItems: ["ethereum", "tracing", "LLM tooling"],
         projectsTitle: "项目",
         siteLabel: "网站",
         profileLabel: "切换头像",

@@ -38,6 +38,26 @@ const Header = ({
                     {content[language].name}
                 </h1>
                 <p className="site-role">{roleText}</p>
+                <nav className="site-nav" aria-label="Profiles">
+                    <a
+                        href="https://github.com/robmcelhinney"
+                        aria-label="GitHub"
+                    >
+                        <img src={githubIcon} alt="" />
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/robmcelhinney/"
+                        aria-label="LinkedIn"
+                    >
+                        <img src={linkedinIcon} alt="" />
+                    </a>
+                    <a
+                        href="mailto:portfolio@robmcelhinney.com"
+                        aria-label="Email"
+                    >
+                        <img src={envelopeIcon} alt="" />
+                    </a>
+                </nav>
             </div>
             <div className="site-header-right">
                 <button
@@ -106,26 +126,6 @@ const Header = ({
                         中文
                     </button>
                 </div>
-                <nav className="site-nav" aria-label="Profiles">
-                    <a
-                        href="https://github.com/robmcelhinney"
-                        aria-label="GitHub"
-                    >
-                        <img src={githubIcon} alt="" />
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/in/robmcelhinney/"
-                        aria-label="LinkedIn"
-                    >
-                        <img src={linkedinIcon} alt="" />
-                    </a>
-                    <a
-                        href="mailto:portfolio@robmcelhinney.com"
-                        aria-label="Email"
-                    >
-                        <img src={envelopeIcon} alt="" />
-                    </a>
-                </nav>
             </div>
         </header>
     )
