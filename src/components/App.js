@@ -84,11 +84,6 @@ const content = {
 function App() {
     const [theme, setTheme] = useState("dark")
     const [language, setLanguage] = useState("en")
-    const [cursorGlow, setCursorGlow] = useState({
-        x: 0,
-        y: 0,
-        active: false,
-    })
 
     useEffect(() => {
         const savedTheme = window.localStorage.getItem("theme")
@@ -132,35 +127,8 @@ function App() {
         setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"))
     }
 
-    const handleMouseMove = (event) => {
-        if (theme !== "dark") {
-            return
-        }
-        setCursorGlow({
-            x: event.clientX,
-            y: event.clientY,
-            active: true,
-        })
-    }
-
-    const handleMouseLeave = () => {
-        setCursorGlow((prevGlow) => ({
-            ...prevGlow,
-            active: false,
-        }))
-    }
-
     return (
-        <div
-            className="site-shell"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{
-                "--spot-x": `${cursorGlow.x}px`,
-                "--spot-y": `${cursorGlow.y}px`,
-                "--spot-opacity": theme === "dark" && cursorGlow.active ? 1 : 0,
-            }}
-        >
+        <div className="site-shell">
             <main className="site-main">
                 <Header
                     theme={theme}
