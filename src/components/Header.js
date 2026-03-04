@@ -34,7 +34,13 @@ const Header = ({
     return (
         <header className="site-header">
             <div className="site-title-wrap">
-                <h1 className={language === "zh" ? "site-name site-name-zh" : "site-name"}>
+                <h1
+                    className={
+                        language === "zh"
+                            ? "site-name site-name-zh"
+                            : "site-name"
+                    }
+                >
                     {content[language].name}
                 </h1>
                 <p className="site-role">{roleText}</p>
@@ -51,10 +57,7 @@ const Header = ({
                     >
                         <img src={linkedinIcon} alt="" />
                     </a>
-                    <a
-                        href="mailto:portfolio@robmcelhinney.com"
-                        aria-label="Email"
-                    >
+                    <a href="mailto:hello@robmcelhinney.com" aria-label="Email">
                         <img src={envelopeIcon} alt="" />
                     </a>
                 </nav>

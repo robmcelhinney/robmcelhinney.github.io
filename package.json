@@ -23,7 +23,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d dist",
+    "deploy": "gh-pages -b master -d build",
     "ipfs": "change homepage to './', build, then pin to ipfs"
   },
   "browserslist": {
